@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Grocery Store</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+        }
+        
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .btn {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .btn-yes {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        .btn-no {
+            background-color: #f44336;
+            color: white;
+        }
+        
+        .total-row {
+            font-weight: bold;
+            background-color: #e7e7e7;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Item ID</th>
+                <th>Item Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Item Description</th>
+                <th>Cost</th>
+                <th>Confirm Purchase</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>I012</td>
+                <td>Sugar</td>
+                <td>Rs.25 / kg</td>
+                <td>5 kg</td>
+                <td>White Sugar</td>
+                <td>Rs. 125</td>
+                <td>
+                    <div class="btn-group">
+                        <button class="btn btn-yes">Yes</button>
+                        <button class="btn btn-no">No</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>I102</td>
+                <td>Salt</td>
+                <td>Rs. 50 / kg</td>
+                <td>3 kg</td>
+                <td>Pink Salt</td>
+                <td>Rs. 150</td>
+                <td>
+                    <div class="btn-group">
+                        <button class="btn btn-yes">Yes</button>
+                        <button class="btn btn-no">No</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>I802</td>
+                <td>Rice</td>
+                <td>Rs.105 / kg</td>
+                <td>10 kg</td>
+                <td>Basmati Rice</td>
+                <td>Rs. 1050</td>
+                <td>
+                    <div class="btn-group">
+                        <button class="btn btn-yes">Yes</button>
+                        <button class="btn btn-no">No</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>I902</td>
+                <td>Masala Powder</td>
+                <td>Rs. 30 / pack</td>
+                <td>3 pack</td>
+                <td>Sakthi Masala</td>
+                <td>Rs. 90</td>
+                <td>
+                    <div class="btn-group">
+                        <button class="btn btn-yes">Yes</button>
+                        <button class="btn btn-no">No</button>
+                    </div>
+                </td>
+            </tr>
+            <tr class="total-row">
+                <td colspan="5">Total</td>
+                <td>Rs. 1415</td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Portal - Job Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .form-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type="file"] {
+            padding: 5px;
+        }
+
+        select {
+            height: 35px;
+        }
+
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .required:after {
+            content: " *";
+            color: red;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            
+            .form-container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>Job Application Form</h1>
+        <form id="jobApplicationForm" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="fullName" class="required">Full Name</label>
+                <input type="text" id="fullName" name="fullName" required 
+                       minlength="2" maxlength="50" pattern="[A-Za-z ]{2,50}"
+                       title="Please enter a valid name (2-50 characters, letters only)">
+            </div>
+
+            <div class="form-group">
+                <label for="email" class="required">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="phone" class="required">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required
+                       pattern="[0-9]{10}"
+                       title="Please enter a valid 10-digit phone number">
+            </div>
+
+            <div class="form-group">
+                <label for="dob" class="required">Date of Birth</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender">
+                    <option value="">Select Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                    <option value="prefer-not">Prefer not to say</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="address" class="required">Address</label>
+                <textarea id="address" name="address" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="position" class="required">Position Applied For</label>
+                <select id="position" name="position" required>
+                    <option value="">Select Position</option>
+                    <option value="software-engineer">Software Engineer</option>
+                    <option value="data-scientist">Data Scientist</option>
+                    <option value="product-manager">Product Manager</option>
+                    <option value="ux-designer">UX Designer</option>
+                    <option value="devops-engineer">DevOps Engineer</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="resume" class="required">Upload Resume</label>
+                <input type="file" id="resume" name="resume" 
+                       accept=".pdf,.doc,.docx" required>
+            </div>
+
+            <div class="form-group">
+                <label for="coverLetter">Cover Letter</label>
+                <textarea id="coverLetter" name="coverLetter" 
+                          placeholder="Tell us why you're the perfect fit for this position..."></textarea>
+            </div>
+
+            <button type="submit">Submit Application</button>
+        </form>
+    </div>
+</body>
+</html>

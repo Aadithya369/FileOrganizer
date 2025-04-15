@@ -1,0 +1,53 @@
+protonvpn-stable-release (1.0.6) stable; urgency=medium
+
+  * Update checksum after changing key id
+
+ -- Proton Technologies AG <opensource@proton.me>  Fri, 08 Nov 2024 15:00:00 +0100
+
+protonvpn-stable-release (1.0.5) stable; urgency=medium
+
+  * Sign release with renewed GPG key
+
+ -- Proton Technologies AG <opensource@proton.me>  Wed, 30 Oct 2024 13:00:00 +0100
+
+protonvpn-stable-release (1.0.4) stable; urgency=medium
+
+  * Remove arch=all constrain
+
+ -- Proton Technologies AG <opensource@proton.me>  Wed, 3 Jul 2024 14:00:00 +0200
+
+protonvpn-stable-release (1.0.3-3) stable; urgency=medium
+
+  * Update GPG public key
+
+ -- Proton Technologies AG <opensource@proton.me>  Wed, 20 Mar 2024 16:00:00 +0100
+
+protonvpn-stable-release (1.0.3-2) stable; urgency=medium
+
+  * Sign release with renewed GPG key
+
+ -- Proton Technologies AG <opensource@proton.me>  Mon, 24 Apr 2023 12:00:00 +0000
+
+protonvpn-stable-release (1.0.3) stable; urgency=medium
+
+  * Update GPG public key
+
+ -- Proton Technologies AG <opensource@proton.me>  Tue, 23 Aug 2022 13:59:59 +0200
+
+protonvpn-stable-release (1.0.2) stable; urgency=medium
+
+  * Repository update
+
+ -- Proton Technologies AG <opensource@proton.me>  Thu, 9 Jun 2022 14:00:00 +0100
+
+protonvpn-stable-release (1.0.1-1) stable; urgency=medium
+
+  * Adopt deb best practices (https://wiki.debian.org/DebianRepository/UseThirdParty#Complete_example)
+
+ -- Proton Technologies AG <opensource@proton.me>  Tue, 25 May 2021 14:00:00 +0100
+ 
+protonvpn-stable-release (1.0.0-1) stable; urgency=medium
+
+  * Initial release
+
+ -- Proton Technologies AG <opensource@proton.me>  Thu, 13 May 2021 14:00:00 +0100

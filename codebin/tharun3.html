@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>opensourced Landing Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 80px auto 0;
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            min-height: calc(100vh - 80px);
+        }
+
+        .text-content {
+            flex: 1;
+            padding-right: 2rem;
+        }
+
+        .image-content {
+            flex: 1;
+        }
+
+        .image-content img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .contact-info {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Tablet Styles */
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+                text-align: center;
+                padding: 1rem;
+            }
+
+            .text-content {
+                padding-right: 0;
+                margin-bottom: 2rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 480px) {
+            .nav-links {
+                display: none;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .main-content {
+                margin-top: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">opensourcedName</div>
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="#">About</a>
+                <a href="#">Services</a>
+                <a href="#">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="text-content">
+            <h1>Welcome to the Future</h1>
+            <p>We're revolutionizing the way businesses operate with our innovative solutions. Our cutting-edge technology helps companies grow and succeed in the digital age.</p>
+            <p>Join thousands of satisfied customers who have transformed their businesses with our platform.</p>
+        </div>
+        <div class="image-content">
+            <img src="/api/placeholder/600/400" alt="opensourced ">
+        </div>
+    </main>
+
+    <footer>
+        <div class="contact-info">
+            <h3>Contact Us</h3>
+            <p>Email: info@opensourced.com</p>
+            <p>Phone: (555) 123-4567</p>
+            <p>Address: 123 Innovation Street, Tech City, TC 12345</p>
+        </div>
+    </footer>
+</body>
+</html>

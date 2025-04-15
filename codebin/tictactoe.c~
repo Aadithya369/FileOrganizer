@@ -1,0 +1,48 @@
+#include<stdio.h>
+#include<stdbool.h>
+#define MAX 1
+int main(){
+	printf("\n------Welcome to TIC TAC TOE------\n");
+	char board[3][3] = {
+		{ , , },
+		{ , , },
+		{ , , }
+	};
+	int player1_point = 0;
+	int player2_point = 0;
+	char player1[20];
+	char player2[20];
+	char choice;
+	int turn = 0;
+	int row,col;
+	printf("Enter player1(x): ");
+	scanf("%s",player1);
+	printf("Enter player2(y): ");
+	scanf("%s",player2);
+	while(player1_point !=MAX && player2_point != MAX){
+		bool checkWin(char board[3][3], char choice) {
+    		// Check rows
+   		 for (int i = 0; i < 3; i++) {
+        		if (board[i][0] == choice && board[i][1] == choice && board[i][2] == choice) {
+            			return true;
+        		}
+    		}
+    		// Check columns
+    		for (int j = 0; j < 3; j++) {
+        		if (board[0][j] == choice && board[1][j] == choice && board[2][j] == choice) {
+            			return true;
+        		}
+    		}
+    		// Check main diagonal
+    		if (board[0][0] == choice && board[1][1] == choice && board[2][2] == choice) {
+        		return true;
+    		}
+    		// Check secondary diagonal
+    		if (board[0][2] == choice && board[1][1] == choice && board[2][0] == choice) {
+        		return true;
+    		}
+    		// No win condition met
+    		return false;
+		}	
+	}
+}
