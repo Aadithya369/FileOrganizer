@@ -4,4 +4,6 @@ I would love ur advice on how to structure the files and for any tips on the pro
 This is just a personal project so this will be only be for *unix* like system "for now".
 ## Caution
 
+------Program is not complete yet------
 Before testing this out make sure you have a backed up all ur files or u will regret like me (ㅠ﹏ㅠ)
+use the codebin dir for testing the program
