@@ -5,5 +5,5 @@ This is just a personal project so this will be only be for *unix* like system "
 ## Caution
 
 ------Program is not complete yet------
-Before testing this out make sure you have a back up of all ur files or else u will regret like me (ㅠ﹏ㅠ)
+Before using this out make sure you have a back up of all ur files or else u will regret like me (ㅠ﹏ㅠ)
 use the codebin dir for testing the program
