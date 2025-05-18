@@ -54,10 +54,10 @@ int main(){
 		}
 		extension[j] = '\0';
 		char command1[300];
-		snprintf(command1,sizeof(command1),"mkdir %s/%s",location,extension);
+		snprintf(command1,sizeof(command1),"mkdir %s/%s 2>/dev/null",location,extension);
 		system(command1);
 		char command2[3000];
-		snprintf(command2,sizeof(command2),"mv %s/%s %s/%s",location,read_buffer,location,extension);
+		snprintf(command2,sizeof(command2),"mv %s/%s %s/%s 2>/dev/null",location,read_buffer,location,extension);
 		system(command2);
 	}
 		printf("FILES ORGANIZED!!!");
