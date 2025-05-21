@@ -6,11 +6,13 @@
 
 #ifdef  _WIN32
 	#include <direct.h>
+	#define slash '\\'
 #elif  __linux__
 	#include <dirent.h>
 	#include <sys/stat.h>
 	#include <unistd.h>
 	#include <sys/types.h>
+	#define slash '/'
 #endif
 
 int main(){
@@ -56,7 +58,7 @@ int main(){
 		extension[j] = '\0';
 
 		char new_path[300];
-		snprintf(new_path,sizeof(new_path),"%s/%s",location,extension);
+		snprintf(new_path,sizeof(new_path),"%s%c%s",location,slash,extension);
 		#ifdef _WIN32
 			if(_mkdir(new_path) == -1){
 				perror("_mkdir() failed :(\n");
@@ -72,8 +74,8 @@ int main(){
 		#endif
 		char command2[1024];
 		char old_path[1000];
-		snprintf(command2,sizeof(command2),"%s/%s/%s",location,extension,files->d_name);
-		snprintf(old_path,sizeof(old_path),"%s/%s",location,files->d_name);
+		snprintf(command2,sizeof(command2),"%s%c%s%c%s",location,slash,extension,slash,files->d_name);
+		snprintf(old_path,sizeof(old_path),"%s%c%s",location,slash,files->d_name);
 		rename(old_path,command2);
 	}
 		printf("FILES ORGANIZED!!!");
