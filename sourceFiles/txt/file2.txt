@@ -1,0 +1,4 @@
+A suffix automaton is a powerful tool for detecting plagiarism.
+The quick brown fox jumps high over obstacles.
+Detecting similarities between texts is crucial for plagiarism detection.
+

@@ -1,0 +1,4 @@
+The quick brown fox jumps over the lazy dog.
+Plagiarism detection is an interesting problem in computer science.
+Suffix automaton is a powerful tool for string matching.
+
