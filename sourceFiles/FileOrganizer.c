@@ -13,6 +13,8 @@
 	#include <unistd.h>
 	#include <sys/types.h>
 	#define slash '/'
+#else
+	#error "Unsupported platform"
 #endif
 
 int main(){
@@ -49,15 +51,30 @@ int main(){
 				break;
 			}
 		}
-		if (last_pos == -1){
-			continue;
-		}
 		for(int i = last_pos + 1;i < strlen(files->d_name);i++){
 			extension[j++] = files->d_name[i];
 		}
 		extension[j] = '\0';
-
-		char new_path[300];
+		char noextension[150];
+		char new_path[900];
+		char no_file[900];
+		snprintf(noextension,sizeof(noextension),"%s%cextension_less",location,slash);
+		snprintf(no_file,sizeof(no_file),"%s%c%s",location,slash,files->d_name);
+		if (last_pos == -1){
+			#ifdef _WIN32
+				if((_mkdir(noextension)) == -1){
+					perror("Error in _mkdir() :( ");
+				}
+			#elif __linux__
+				if(access(noextension,F_OK) == -1){
+					if((mkdir(noextension,F_OK)) == -1){
+						perror("Error in mkdir() in extension_less:( ");
+					}
+				}
+			#endif
+			snprintf(new_path,sizeof(new_path),"%s%c%s%s",location,slash,noextension,files->d_name);
+			rename(no_file,new_path);
+		}
 		snprintf(new_path,sizeof(new_path),"%s%c%s",location,slash,extension);
 		#ifdef _WIN32
 			if(_mkdir(new_path) == -1){
