@@ -9,10 +9,10 @@ A command line utility tool that organizes your messy folders by creating subdir
 ## How to run
 
 ```sh
-# Clone the repository using
+# Clone the repository 
 git clone git@github.com:Aadithya369/FileOrganizer.git
 
-# Compile the program (replace program_name with the actual filename)
+# Compile the program 
 gcc program_name && ./a.out
 
 # Enter the PATH of the folder you want to organize.
