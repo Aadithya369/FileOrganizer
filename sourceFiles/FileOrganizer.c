@@ -18,8 +18,8 @@
 #endif
 
 int main(){
-	char location[100];
-	char file_name[200];
+	char location[50];
+	char file_name[30];
 	printf("PATH:");
 	fgets(location,sizeof(location),stdin);
 	location[strcspn(location,"\n")] = '\0';
@@ -35,65 +35,43 @@ int main(){
 		fgets(location,sizeof(location),stdin);
 		location[strcspn(location,"\n")] = '\0';
 	}
-	location[strcspn(location,"\n")] = '\0';
 	struct dirent *files;
-	if(ENOENT == errno){
-		perror("Error opening dirent");	
-		return 1;
-	}
 	while((files = readdir(dir)) != NULL){
-		char extension[20];
-		int j = 0;
-		int last_pos = -1;
-		for(int i = strlen(files->d_name) - 1;i >= 0;i--){
-			if(files->d_name[i] == '.'){
-				last_pos = i;			
-				break;
-			}
-		}
-		for(int i = last_pos + 1;i < strlen(files->d_name);i++){
-			extension[j++] = files->d_name[i];
-		}
-		extension[j] = '\0';
-		char noextension[150];
-		char new_path[900];
-		char no_file[900];
-		snprintf(noextension,sizeof(noextension),"%s%cextension_less",location,slash);
-		snprintf(no_file,sizeof(no_file),"%s%c%s",location,slash,files->d_name);
-		if (last_pos == -1){
-			#ifdef _WIN32
-				if((_mkdir(noextension)) == -1){
-					perror("Error in _mkdir() :( ");
-				}
+		char *pos = strchr(files->d_name,'.');
+		char dir_name[20];
+		char dir_path[30];
+		char old_path[100];
+		char new_path[100];
+		if(pos!=NULL){
+			strcpy(dir_name,pos + 1);
+			snprintf(dir_path,sizeof(dir_path),"%s%c%s",location,slash,dir_name);
+			#ifdef WIN_32
+				_mkdir(dir_path);
 			#elif __linux__
-				if(access(noextension,F_OK) == -1){
-					if((mkdir(noextension,F_OK)) == -1){
-						perror("Error in mkdir() in extension_less:( ");
-					}
-				}
+				mkdir(dir_path,0755);
+			#else
+				printf("Unsupported OS");
 			#endif
-			snprintf(new_path,sizeof(new_path),"%s%c%s%s",location,slash,noextension,files->d_name);
-			rename(no_file,new_path);
+			
+			snprintf(old_path,sizeof(old_path),"%s%c%s",location,slash,files->d_name);
+			snprintf(new_path,sizeof(new_path),"%s%c%s%c%s",location,slash,dir_name,slash,files->d_name);
+			rename(old_path,new_path);
 		}
-		snprintf(new_path,sizeof(new_path),"%s%c%s",location,slash,extension);
-		#ifdef _WIN32
-			if(_mkdir(new_path) == -1){
-				perror("_mkdir() failed :(\n");
-				return 1;
-			}
-		#elif __linux__  
-			if(access(new_path,F_OK ) == -1){
-				if(mkdir(new_path,0755) == -1){
-					perror("mkdir failed :( ");
-					return 1;
-				}
-			}	
-		#endif
-		char command2[1024];
-		char old_path[1000];
-		snprintf(command2,sizeof(command2),"%s%c%s%c%s",location,slash,extension,slash,files->d_name);
-		snprintf(old_path,sizeof(old_path),"%s%c%s",location,slash,files->d_name);
-		rename(old_path,command2);
+		else{
+			snprintf(dir_name,sizeof(dir_name),"%s%c%s",location,slash,files->d_name);	
+			snprintf(dir_path,sizeof(dir_path),"%s%cextension_less",location,slash);
+			#ifdef WIN_32
+				_mkdir(dir_path);
+			#elif __linux__
+				mkdir(dir_path,0755);
+			#else
+				printf("Unsupported OS");
+			#endif
+
+			snprintf(old_path,sizeof(old_path),"%s%c%s",location,slash,files->d_name);
+			snprintf(new_path,sizeof(new_path),"%s%cextension_less%c%s",location,slash,slash,files->d_name);
+			rename(old_path,new_path);
+		}
 	}
 		printf("FILES ORGANIZED!!!");
 		return 0;
