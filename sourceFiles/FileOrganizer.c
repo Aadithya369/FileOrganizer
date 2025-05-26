@@ -20,10 +20,11 @@
 int main(){
 	char location[50];
 	char file_name[30];
+	DIR *dir;
+	struct dirent *files;
 	printf("PATH:");
 	fgets(location,sizeof(location),stdin);
 	location[strcspn(location,"\n")] = '\0';
-	DIR *dir;
 	while((dir = opendir(location)) == NULL){
 		if(ENOENT == errno){
 			printf("Enter a valid path\n");
@@ -35,14 +36,15 @@ int main(){
 		fgets(location,sizeof(location),stdin);
 		location[strcspn(location,"\n")] = '\0';
 	}
-	struct dirent *files;
 	while((files = readdir(dir)) != NULL){
-		char *pos = strchr(files->d_name,'.');
+		char *pos = strrchr(files->d_name,'.');
 		char dir_name[20];
 		char dir_path[30];
 		char old_path[100];
 		char new_path[100];
 		if(pos!=NULL){
+			if(files->d_name[0] == '.')
+				continue;
 			strcpy(dir_name,pos + 1);
 			snprintf(dir_path,sizeof(dir_path),"%s%c%s",location,slash,dir_name);
 			#ifdef WIN_32
@@ -58,6 +60,8 @@ int main(){
 			rename(old_path,new_path);
 		}
 		else{
+			if(files->d_name[0] == '.')
+				continue;
 			snprintf(dir_name,sizeof(dir_name),"%s%c%s",location,slash,files->d_name);	
 			snprintf(dir_path,sizeof(dir_path),"%s%cextension_less",location,slash);
 			#ifdef WIN_32
