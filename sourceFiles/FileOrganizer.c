@@ -18,8 +18,8 @@
 #endif
 
 int main(){
-	char location[50];
-	char file_name[30];
+	char *location = malloc(sizeof(char));
+	char *file_name = malloc(sizeof(char));
 	DIR *dir;
 	struct dirent *files;
 	printf("PATH:");
@@ -38,10 +38,10 @@ int main(){
 	}
 	while((files = readdir(dir)) != NULL){
 		char *pos = strrchr(files->d_name,'.');
-		char dir_name[20];
-		char dir_path[30];
-		char old_path[100];
-		char new_path[100];
+		char *dir_name = malloc(sizeof(char));
+		char *dir_path = malloc(sizeof(char));
+		char *old_path = malloc(sizeof(char));
+		char *new_path = malloc(sizeof(char));
 		if(pos!=NULL){
 			if(files->d_name[0] == '.')
 				continue;
