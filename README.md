@@ -12,7 +12,7 @@ A simple lightweight command line utility tool that organizes your messy folders
 # Clone the repository 
 git clone git@github.com:Aadithya369/FileOrganizer.git
 
-# Compile the program 
+# Compile and run the program 
 gcc program_name && ./a.out
 
 # Enter the PATH of the folder you want to organize.
