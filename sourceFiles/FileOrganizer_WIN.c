@@ -7,5 +7,5 @@ int main(){
 	char location[100];
 	printf("PATH:");
 	fgets(location,sizeof(location),stdin);
-	
+	WIN32_FIND_DATA findFileData;	
 }
