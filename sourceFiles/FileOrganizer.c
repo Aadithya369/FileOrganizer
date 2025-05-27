@@ -38,10 +38,10 @@ int main(){
 	}
 	while((files = readdir(dir)) != NULL){
 		char *pos = strrchr(files->d_name,'.');
-		char dir_name[20];
-		char dir_path[30];
-		char old_path[100];
-		char new_path[100];
+		char dir_name[450];
+		char dir_path[550];
+		char old_path[450];
+		char new_path[850];
 		if(pos!=NULL){
 			if(files->d_name[0] == '.')
 				continue;
