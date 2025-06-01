@@ -8,7 +8,10 @@
 #include <unistd.h>
 #include <sys/types.h>
 
+int count_file(char *location);
+
 int main(){
+	int total_files;
 	char location[500];
 	char file_name[30];
 	DIR *dir;
@@ -22,6 +25,7 @@ int main(){
 		fgets(location,sizeof(location),stdin);
 		location[strcspn(location,"\n")] = '\0';
 	}while((dir = opendir(location)) == NULL);
+	total_files = count_file(location);
 	while((files = readdir(dir)) != NULL){
 		if(files->d_type == 4) //this is to avoid the program to treat the directories as files
 			continue;
@@ -51,6 +55,40 @@ int main(){
 			rename(old_path,new_path);
 		}
 	}
+		printf("Total Files: %d\n",total_files);
 		printf("FILES ORGANIZED!!!");
 		return 0;
+}
+int count_file(char *location){
+	int file_count = 0;
+	DIR *dir;
+	struct dirent *files;
+	DIR *inner_dir;
+	struct dirent *inner_file;
+	if((dir=opendir(location)) == NULL){
+		perror("Error opening location");
+		return 1;
+	}
+	while((files = readdir(dir)) != NULL){
+		if(files->d_name[0] == '.')
+			continue;
+		if(files->d_type == DT_DIR){
+			char dir_file[600];
+			snprintf(dir_file,sizeof(dir_file),"%s/%s",location,files->d_name);
+			if((inner_dir = opendir(dir_file)) == NULL){
+				perror("Error opening inner_file");
+				return 1;
+			}
+			while((inner_file = readdir(inner_dir)) != NULL){
+				if(inner_file->d_name[0] != '.')
+					file_count++;
+			}
+		}
+		else if(files->d_type == DT_REG){
+			file_count++;
+		}
+	}
+	closedir(dir);
+	closedir(inner_dir);
+	return file_count;
 }
