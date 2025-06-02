@@ -8,8 +8,6 @@
 #include <unistd.h>
 #include <sys/types.h>
 
-int count_file(char *location);
-
 int main(){
 	int total_files;
 	char location[500];
@@ -55,6 +53,7 @@ int main(){
 			rename(old_path,new_path);
 		}
 	}
+		closedir(dir);
 		printf("Total Files: %d\n",total_files);
 		printf("FILES ORGANIZED!!!");
 		return 0;
