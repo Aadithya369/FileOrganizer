@@ -1,11 +1,9 @@
 # About
 A simple lightweight command line utility tool that organizes your messy folders by creating subdirectories based on your file extensions and puts your files into their respective directories.
 
-## Requirements
-- GCC compiler  
-  or  
+## Requirements 
 - any compiler with _POSIX_ compatibility
-- dirent.h 
+- dirent.h (for cross-platform portability)
 
 ## How to run
 
