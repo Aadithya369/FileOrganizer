@@ -24,4 +24,6 @@ gcc program_name && ./a.out
 
 ---
 
-**CONTRIBUTIONS AND/OR FEEDBACKS ARE VERY MUCH APPRECIATED!**
+**CONTRIBUTIONS ARE VERY MUCH APPRECIATED!**
+
+**For any quries or feedback mail me at aadithyaanandan123@gmail.com**
