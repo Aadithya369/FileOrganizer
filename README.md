@@ -1,5 +1,5 @@
 # About
-A simple lightweight command line utility tool that organizes your messy folders by creating subdirectories based on your file extensions and puts your files into their respective directories.
+A simple lightweight command line utility tool that organizes your messy files by creating subdirectories based on your file extension and puts your files into their respective directories.
 
 ## Requirements 
 - any compiler with _POSIX_ compatibility
