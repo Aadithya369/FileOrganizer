@@ -26,4 +26,4 @@ gcc <program_name> -o <exectuable_name> && ./<executable_name>
 
 **CONTRIBUTIONS ARE VERY MUCH APPRECIATED!**
 
-**For any quries and/or feedback send a e-mail me at aadithyaanandan123@gmail.com**
+**For any quries and/or feedback e-mail me at aadithyaanandan123@gmail.com**
